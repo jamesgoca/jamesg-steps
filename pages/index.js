@@ -83,6 +83,7 @@ function Home({ steps_data, goals_data, date, yesterday, day_before }) {
               )}
             </StyledBox><br />
             <Text>I am trying to become more active every day, and so I have decided to start publishing my step counts. If you see that yesterday's step count is less than 10,000, give James a <a href="mailto:jamesg@jamesg.app" style={{ color: '#627AFE', textDecoration: "none" }}>nudge</a> and tell him to keep focusing on his goal!</Text><br />
+            <Text>The step count data for this project should be updated at least once per day.</Text><br />
         </FullBox>
       </Grid>
       <AppFooter />
