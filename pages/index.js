@@ -12,7 +12,9 @@ const StyledBox = styled(Box)`
   border: 3px solid black;
 `;
 
-function Home({ steps_data, goals_data, date, yesterday }) {
+function Home({ steps_data, goals_data, date, yesterday, day_before }) {
+
+  console.log(steps_data)
   return (
     <div>
       <Head>
@@ -75,7 +77,7 @@ function Home({ steps_data, goals_data, date, yesterday }) {
               )}
               <br />
               {parseInt(steps_data["activities-steps"][1]["value"]) > parseInt(steps_data["activities-steps"][0]["value"]) ? (
-                <Text style={{ color: "green" }}>James has improved from yesterday! 🔥</Text>
+                <Text style={{ color: "green" }}>James has improved from the day before yesterday, {day_before}! 🔥</Text>
               ) : (
                 <Text style={{ color: "red" }}>James has not improved from the day before (yet). 🏃</Text>
               )}
@@ -93,8 +95,6 @@ export async function getStaticProps() {
   // You can use any data fetching library
 
   var today = new Date();
-
-  console.log(process.env.FITBIT_KEY)
 
   var date = today.getFullYear() + "-" + ("0" + (today.getMonth() + 1)).slice(-2) + "-" + today.getDate();
   var yesterday = today.getFullYear() + "-" + ("0" + (today.getMonth() + 1)).slice(-2) + "-" + (today.getDate() - 1);
@@ -127,7 +127,8 @@ export async function getStaticProps() {
       steps_data,
       goals_data,
       date,
-      yesterday
+      yesterday,
+      day_before
     },
   }
 }
