@@ -1,0 +1,5 @@
+{
+  "env": {
+    "FITBIT_KEY": "@fitbit-key"
+  }
+}
